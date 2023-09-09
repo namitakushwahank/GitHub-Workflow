@@ -1,4 +1,4 @@
-name: mainCI
+name: main CI
 
 on:
   pull_request:
