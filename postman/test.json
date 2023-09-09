@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "419d8ebc-5e46-4652-a4cb-c3f451bf892e",
+		"name": "SmokeTestCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET USER 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f03b2987-9775-44e5-90d9-e3325a36b51d",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Email is in a valid format\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.email).to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate first_name and last_name are non-empty strings\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.first_name).to.exist.and.to.be.a('string').and.to.not.be.empty;",
+							"    pm.expect(responseData.data.last_name).to.exist.and.to.be.a('string').and.to.not.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Verify support object is present and contains expected fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.support).to.exist;",
+							"    pm.expect(responseData.support).to.have.property('url');",
+							"    pm.expect(responseData.support).to.have.property('text');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "259558e9-96bf-4e9e-b537-159ab00c8ee6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/users/2"
+			},
+			"response": []
+		}
+	]
+}
