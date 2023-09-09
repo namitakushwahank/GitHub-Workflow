@@ -11,7 +11,7 @@ jobs:
   mainCIJob:
     runs-on: ubuntu-latest
 
-    Steps:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
