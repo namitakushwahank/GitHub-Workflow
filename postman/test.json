@@ -49,7 +49,7 @@
 					}
 				}
 			],
-			"_postman_id": "259558e9-96bf-4e9e-b537-159ab00c8ee6",
+			"id": "259558e9-96bf-4e9e-b537-159ab00c8ee6",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -57,6 +57,167 @@
 				"method": "GET",
 				"header": [],
 				"url": "https://reqres.in/api/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d299212c-3916-47a7-b2bd-03e977253c85",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the data object\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data).to.exist;",
+							"",
+							"    const data = responseData.data;",
+							"    pm.expect(data.id).to.be.a('number');",
+							"    pm.expect(data.name).to.be.a('string');",
+							"    pm.expect(data.year).to.be.a('number');",
+							"    pm.expect(data.color).to.be.a('string');",
+							"    pm.expect(data.pantone_value).to.be.a('string');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Name is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Year is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.year).to.be.a('number');",
+							"    pm.expect(responseData.data.year).to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Color is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.color).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data).to.exist;",
+							"    pm.expect(responseData.data.id).to.exist;",
+							"    pm.expect(responseData.data.name).to.exist;",
+							"    pm.expect(responseData.data.year).to.exist;",
+							"    pm.expect(responseData.data.color).to.exist;",
+							"    pm.expect(responseData.data.pantone_value).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Id is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.id).to.be.a('number');",
+							"    pm.expect(responseData.data.id).to.be.at.least(0, \"Id should be non-negative\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"pantone_value is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.pantone_value).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Support object is present in the response\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.support).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"URL and text fields in the support object are non-empty strings\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.support.url).to.be.a('string').and.to.have.lengthOf.at.least(1, \"URL should not be empty\");",
+							"    pm.expect(responseData.support.text).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Text should not be empty\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "21873b38-d929-444f-8e7c-404c37afffca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/unknown/2"
+			},
+			"response": []
+		},
+		{
+			"name": "404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b0d85bf-e74a-4965-859f-16b1a13ecebc",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Response status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response body is empty\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is within acceptable range\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "58bc29e1-b1bc-4498-bfe2-a28cc7f19aa7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/unknown/23"
 			},
 			"response": []
 		}
