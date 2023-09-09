@@ -220,6 +220,56 @@
 				"url": "https://reqres.in/api/unknown/23"
 			},
 			"response": []
+		},
+		{
+			"name": "404 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b0d85bf-e74a-4965-859f-16b1a13ecebc",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Response status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response body is empty\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is within acceptable range\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "669e26e8-4680-4a40-b733-75818751e43e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/unknown/23"
+			},
+			"response": []
 		}
 	]
 }
