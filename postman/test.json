@@ -49,7 +49,7 @@
 					}
 				}
 			],
-			"_postman_id": "259558e9-96bf-4e9e-b537-159ab00c8ee6",
+			"id": "259558e9-96bf-4e9e-b537-159ab00c8ee6",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -57,6 +57,18 @@
 				"method": "GET",
 				"header": [],
 				"url": "https://reqres.in/api/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "8fe4f499-484c-4f96-bff2-7b05add7f5f5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
