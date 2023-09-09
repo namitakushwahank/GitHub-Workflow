@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - '**'
+    paths-ignore:
+      - postman
+
 jobs:
   first_job:
     runs-on: ubuntu-latest
