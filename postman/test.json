@@ -220,6 +220,69 @@
 				"url": "https://reqres.in/api/unknown/23"
 			},
 			"response": []
+		},
+		{
+			"name": "404 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b0d85bf-e74a-4965-859f-16b1a13ecebc",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Response status code is 404\", function () {",
+							"    pm.expect(pm.response.code).to.equal(404);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response body is empty\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is within acceptable range\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "d1022ab2-8548-43b4-9912-92467cabb597",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/unknown/23"
+			},
+			"response": []
+		},
+		{
+			"name": "test2",
+			"id": "1331aa95-3b1d-4d74-9f21-1b9bc3f79158",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/users/23"
+			},
+			"response": []
 		}
 	]
 }
