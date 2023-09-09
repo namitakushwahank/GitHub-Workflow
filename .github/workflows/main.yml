@@ -6,3 +6,15 @@ on:
       -main
     types:
       -closed
+
+jobs:
+  mainCIJob:
+    runs-on: ubuntu-latest
+
+    Steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Test main CI
+        run: |
+            echo "Test main CI"
