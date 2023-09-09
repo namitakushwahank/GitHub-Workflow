@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "419d8ebc-5e46-4652-a4cb-c3f451bf892e",
+		"name": "SmokeTestCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET USER 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f03b2987-9775-44e5-90d9-e3325a36b51d",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Email is in a valid format\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.email).to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate first_name and last_name are non-empty strings\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.first_name).to.exist.and.to.be.a('string').and.to.not.be.empty;",
+							"    pm.expect(responseData.data.last_name).to.exist.and.to.be.a('string').and.to.not.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Verify support object is present and contains expected fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.support).to.exist;",
+							"    pm.expect(responseData.support).to.have.property('url');",
+							"    pm.expect(responseData.support).to.have.property('text');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "259558e9-96bf-4e9e-b537-159ab00c8ee6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d299212c-3916-47a7-b2bd-03e977253c85",
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the data object\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data).to.exist;",
+							"",
+							"    const data = responseData.data;",
+							"    pm.expect(data.id).to.be.a('number');",
+							"    pm.expect(data.name).to.be.a('string');",
+							"    pm.expect(data.year).to.be.a('number');",
+							"    pm.expect(data.color).to.be.a('string');",
+							"    pm.expect(data.pantone_value).to.be.a('string');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Name is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Year is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.year).to.be.a('number');",
+							"    pm.expect(responseData.data.year).to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Color is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.data.color).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "21873b38-d929-444f-8e7c-404c37afffca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://reqres.in/api/unknown/2"
+			},
+			"response": []
+		}
+	]
+}
