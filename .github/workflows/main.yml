@@ -9,7 +9,7 @@ on:
 
 jobs:
   mainCIJob:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     Steps:
       - name: Checkout code
