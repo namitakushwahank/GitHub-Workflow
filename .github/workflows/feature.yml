@@ -3,10 +3,10 @@ name: featureCI
 on:
   push:
     branches:
-      -'**'
+      - '**'
 jobs:
   first_job:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
