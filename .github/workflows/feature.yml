@@ -1,0 +1,6 @@
+name: featureCI
+
+on:
+  push:
+    branches:
+      -'**'
