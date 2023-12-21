@@ -2,7 +2,7 @@ name: ConditionalWorkflow
 
 on:
   workflow_dispatch:
-    input:
+    inputs:
       env:
         description: 'Select Environment'
         type: choice
@@ -32,5 +32,3 @@ jobs:
       - name: Build and Test feature CI
         run: |
           echo "Building and testing..."
-          
-
