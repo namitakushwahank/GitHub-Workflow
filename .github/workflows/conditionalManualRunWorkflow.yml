@@ -1,0 +1,34 @@
+name: ConditionalWorkflow
+
+on:
+  workflow_dispatch:
+    input:
+      env:
+        description: 'Select Environment'
+        type: choice
+        options:
+          - 'dev'
+          - 'test'
+          - 'stage'
+        required: true
+        default: 'test'
+      groups:
+        description: 'groups'
+        type: choice
+        options: ${{ github.event.env == 'stage' ? ['smoke'] : ['smoke', 'regression'] }}
+        required: true
+        default: 'smoke'
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and Test feature CI
+        run: |
+          echo "Building and testing..."
+          
+
