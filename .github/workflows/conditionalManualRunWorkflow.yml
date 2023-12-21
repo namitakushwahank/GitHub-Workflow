@@ -15,7 +15,9 @@ on:
       groups:
         description: 'groups'
         type: choice
-        options: ${{ github.event.env == 'stage' ? ['smoke'] : ['smoke', 'regression'] }}
+        options:
+          - 'smoke'
+          - 'regression'
         required: true
         default: 'smoke'
 
